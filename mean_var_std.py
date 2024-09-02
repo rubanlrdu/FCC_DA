@@ -1,5 +1,7 @@
 import numpy as np
 def calculate(d):
+  if len(list) != 9:
+    raise ValueError("List must contain nine numbers.")
   result={}
   Mean1=d.mean(axis=0)
   Mean2=d.mean(axis=1)
