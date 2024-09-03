@@ -29,6 +29,11 @@ min_work=ci[ci['hours-per-week']==min_work]
 min_work_rich=(min_work[min_work['salary']=='>50K'])
 print("Percentage Of People Who Work Minimum Hours And Make More Than 50K : ",round(len(min_work_rich)/len(min_work)*100),"%")
 
+min_hours = ci[ci['hours-per-week'] == min_work_hours]
+num_min_workers = ci[ci['hours-per-week'] == min_work_hours].shape[0]
+rich_percentage = round(min_hours[min_hours['salary'] == ">50K"].shape[0]/num_min_workers*100, 1)
+print("The people who work the minimum number of hours per week have a salary of more than 50K is : ",rich_percentage,"%")
+
 rich_salary_country=ci[ci['salary']=='>50K']
 maxim=rich_salary_country["native-country"].value_counts()
 print(maxim.index[maxim.argmax()],"has the highest percentage of people that earn >50K and the percentage is",round(maxim.max()/len(rich_salary_country)*100),"%")
